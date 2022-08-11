@@ -5,14 +5,14 @@ lat=47.6062
 long=-122.3321
 current_time=`date +%H`
 
-
+# function requesting sunrise/sunset times from api
 get_times() {
 	request=`curl -ksf "https://api.sunrise-sunset.org/json?lat="$lat"&lng="$long"&formatted=0"`
 
 
 	if [ ! -z "$request" ]; then
-		sunrise_time=`echo "$request" | jq ".results.sunrise" | tr -d '"'`
-		local_sunrise_time=`date +%H -d $sunrise_time`
+		sunrise_time=`echo "$request" | jq ".results.sunrise" | tr -d '"'` 
+		local_sunrise_time=`date +%H -d $sunrise_time` 
 
 		sunset_time=`echo "$request" | jq ".results.sunset" | tr -d '"'`
 		local_sunset_time=`date +%H -d $sunset_time`
@@ -20,7 +20,7 @@ get_times() {
 	fi
 }
 
-
+# function to compare current local time with adjusted API response
 time_compare() {
 	
 	if [[ $current_time -ge $local_sunset_time ]]; then
