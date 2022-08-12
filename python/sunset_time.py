@@ -13,7 +13,7 @@ to_zone = tz.tzlocal()
 # to_zone = tz.gettz('America/New_York')
 
 #current_hour = int(datetime.now().strftime("%H"))
-current_hour = 10
+current_hour = 11
 
 # input lat/long info for api call
 lat = "47.6062"
@@ -24,7 +24,7 @@ url = f"https://api.sunrise-sunset.org/json?lat={lat}&lng={long}&formatted=0"
 def main(sunrise, sunset, current_time):
 	if current_time >= sunset:
 		return(" Evening")
-	elif current_time >= sunrise & current_time < 12:
+	elif current_time >= sunrise and current_time < 12:
 		return(" Morning")
 	elif current_time >= 12:
 		return(" Afternoon")
@@ -58,8 +58,6 @@ results = api_call()
 sunrise_time = sunrise(results)
 sunset_time	= sunset(results)
 
-sunset(results)
-print(sunrise_time, sunset_time, current_hour)
 print(main(sunrise_time, sunset_time, current_hour))
 
 
