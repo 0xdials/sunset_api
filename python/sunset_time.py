@@ -12,8 +12,7 @@ to_zone = tz.tzlocal()
 # from_zone = tz.gettz('UTC')
 # to_zone = tz.gettz('America/New_York')
 
-#current_hour = int(datetime.now().strftime("%H"))
-current_hour = 11
+current_hour = int(datetime.now().strftime("%H"))
 
 # input lat/long info for api call
 lat = "47.6062"
