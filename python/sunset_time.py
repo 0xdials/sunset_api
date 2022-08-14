@@ -20,7 +20,7 @@ long = "-122.3321"
 url = f"https://api.sunrise-sunset.org/json?lat={lat}&lng={long}&formatted=0"
 
 
-def main(sunrise, sunset, current_time):
+def calculate_greeting(sunrise, sunset, current_time):
 	if current_time >= sunset:
 		return(" Evening")
 	elif current_time >= sunrise and current_time < 12:
@@ -52,11 +52,15 @@ def sunset(results):
 	return(int(adjusted_sunset.hour))
 	
 
+def main():
+	results = api_call()
+	sunrise_time = sunrise(results)
+	sunset_time	= sunset(results)
+	print(calculate_greeting(sunrise_time, sunset_time, current_hour))
 
-results = api_call()
-sunrise_time = sunrise(results)
-sunset_time	= sunset(results)
 
-print(main(sunrise_time, sunset_time, current_hour))
+
+if __name__ == '__main__':
+	main()
 
 
