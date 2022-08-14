@@ -59,7 +59,6 @@ def main():
 	print(calculate_greeting(sunrise_time, sunset_time, current_hour))
 
 
-
 if __name__ == '__main__':
 	main()
 
