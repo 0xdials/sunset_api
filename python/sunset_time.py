@@ -55,7 +55,7 @@ def sunset(results):
 def main():
 	results = api_call()
 	sunrise_time = sunrise(results)
-	sunset_time	= sunset(results)
+	sunset_time = sunset(results)
 	print(calculate_greeting(sunrise_time, sunset_time, current_hour))
 
 
